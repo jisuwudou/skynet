@@ -61,9 +61,9 @@ skynet.start(function()
 	skynet.dispatch("client", function(_,_, msg)
 		-- the simple echo service
 
-		skynet.error("[msgagent]== recv Type:client", msg)
-		local x,y = string.unpack(">HH", msg)
-		print("=================================CLIENT ", x,y)
+		-- skynet.error("[msgagent]== recv Type:client", msg)
+		local systemId,cmd = string.unpack(">BB", msg)
+		print("=================================CLIENT systemId,cmd", systemId,cmd)
 		skynet.sleep(10)	-- sleep a while
 		skynet.ret(msg)
 	end)
